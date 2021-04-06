@@ -29,9 +29,9 @@ function Login(props) {
      {/* <h1>Login here</h1> */}
 
      <div className='fbox'>
-       <form onSubmit={handleSubmit(onSubmit)} >
+       <form >
          <label  htmlFor="text">STUDENT USERNAME:</label>
-         <input type="text" placeholder='username' name='username'   ref={register({ required: true, maxLength: 6 })}/><br/>
+         <input type="text" placeholder='username' name='username'   ref={register({ required: true })}/><br/>
          <label htmlFor="pasword">PASSWORD</label>
          <input type='password' placeholder='PASSWORD' name='password' ref={register({required:true})}/>
          {/* <input type="checkbox" value="0"   onChange={cheched}></input>select all
@@ -41,7 +41,7 @@ function Login(props) {
                 <input type="checkbox" checked={check}  value="C,C++" name="course" ref={register} onClick={check ? false : true}></input>C,C++ */}
          
          
-         <button type='submit' ><Link to="/Qpaper" >submit</Link></button> 
+         <button type='submit' ><Link to="/Qpaper" onClick={handleSubmit(onSubmit)} >submit</Link></button> 
          {/* <button  type='submit' onClick={handleSubmit(onSubmit)} ><Link to="/Qqpaper" >submit</Link></button>   */}
 
     
