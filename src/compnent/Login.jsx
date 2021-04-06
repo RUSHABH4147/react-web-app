@@ -41,7 +41,7 @@ function Login(props) {
                 <input type="checkbox" checked={check}  value="C,C++" name="course" ref={register} onClick={check ? false : true}></input>C,C++ */}
          
          
-         <button type='submit' ><Link to="/Qpaper" onClick={handleSubmit(onSubmit)} >submit</Link></button> 
+         <button type='submit'onClick={handleSubmit(onSubmit)} ><Link to="/Qpaper"  >submit</Link></button> 
          {/* <button  type='submit' onClick={handleSubmit(onSubmit)} ><Link to="/Qqpaper" >submit</Link></button>   */}
 
     
