@@ -1,0 +1,30 @@
+REACT ROUTING:::::::::::::::::
+
+
+1ST >   npm install react-router-dom
+
+2nd >   npm start
+
+3rd >   create component  eg:- Nav.js , Home.js etc
+
+4th >   import the component in Aap.js
+
+
+5th >   import {BrowserRouter as Router,Switch,Route} from 'react-router-dom'; ---- in app.js
+
+6th >   wrap component in <Router>             <Router/>
+
+
+7th >   use Route    eg:- <Route path="/home" component={Home}/>
+
+
+8th >   use  Switch  (wrap around the route).
+
+9th >    use >>exact<< to route to sepcific path
+
+10th >  import {Link} from 'react-router-dom' ((where clickble links are present))
+
+11th >  use >>Link<<tag instead of >a<tag .. eg:- <Link to='/Home'>  home   </Link>
+
+
+::::::::::::::::::::::::::::::::::::::::::::::::::::
