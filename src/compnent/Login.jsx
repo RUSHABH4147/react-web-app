@@ -7,7 +7,6 @@ import {Link} from 'react-router-dom'; // npm install ract-router-dom
 
 function Login(props) {
   const {register,handleSubmit}=useForm() //its a hook for forms in react
- 
 //this is function for geting the data from the form
   const onSubmit=(data)=>{ 
     console.log(data);

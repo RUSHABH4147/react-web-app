@@ -146,12 +146,13 @@ button{
 }
 .btn{
   padding: 15px;
-  width: 20%;
+  width: auto;
   margin-top: 40px;
   border-radius: 15px;
   border: none;
-  color: rgb(3, 3, 3);
-  background-color:rgb(131, 255, 107);
+  color: whitesmoke;
+  background-color: rgb(210 91 52);
+  margin: 5px;
 }
 
 
