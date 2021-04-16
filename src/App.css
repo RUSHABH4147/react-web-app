@@ -6,14 +6,22 @@ nav {
   justify-content: space-around;
   align-items: center;
   height: 10vh;
-  background:linear-gradient(to right, rgba(151, 95, 76, 0.705), rgba(75, 130, 139, 0.712));
+  background:linear-gradient(to right, rgba(151, 95, 76, 0.781), rgba(75, 130, 139, 0.712));
 
+}
+.logo{
+  position: relative;
+  width: 55px;
+  height: 55px;
+  left: 35px;
+  top: 0px;
+  margin: 0px;
 }
 
 .navlinks {
   width: 50%;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   list-style: none;
 }
@@ -170,6 +178,13 @@ button{
   background-color: rgb(52, 189, 189);
   box-shadow: 0 0 3px rgba(0, 0, 0, 0.349)
   
+}
+.TIMER{
+  color: #000;
+    background-color: cadetblue;
+    border-radius: 20px;
+    padding-left: 10px;
+    text-align: center;
 }
 
 /* form{

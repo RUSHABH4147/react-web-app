@@ -1,4 +1,4 @@
-import React, {useState}from "react";
+import React, {useState,useEffect}from "react";
 import './App.css';
 import Nav from './compnent/Nav';
 import Home from './compnent/Home';
@@ -14,7 +14,7 @@ import Mmarksheet from "./compnent/Mmarksheet1";
 
 
 
-import {BrowserRouter as Router, Switch ,Route} from 'react-router-dom';
+import {BrowserRouter as Router, Routes ,Route} from 'react-router-dom';
 
 
 function App() {
@@ -23,6 +23,9 @@ function App() {
  const [score,setscore]=useState(0);
 
  const [marks,setmarks]=useState(0);
+
+
+
  function ans(e){
   // e.preventDefault();
   if(e.target.value==="2"){
@@ -43,12 +46,12 @@ function App() {
 
     <Router>
       <Nav/>
-      <Switch>
-      <Route path="/" exact component={About} />
-      <Route path="/home" exact component={Home} />
-      <Route path="/contact" exact component={Contact} />
-      <Route path="/Gallery" exact component={Gallery} />
-      <Route path="/Register" exact component={Register} />
+      <Routes>
+      <Route path="/" exact element={<About/>} />
+      <Route path="/home" exact element={<Home/>} />
+      <Route path="/contact" exact element={<Contact/>} />
+      <Route path="/Gallery" exact element={<Gallery/>} />
+      <Route path="/Register" exact element={<Register/>} />
 
       <Route path="/login" exact >
        <Login  disdat={setdisdata}/> {/*passing usestate-elements as attribute in the component to share there props (data flow) } */}
@@ -67,7 +70,7 @@ function App() {
     </Route>
 
 
-      </Switch>
+      </Routes>
 
     
     </Router>

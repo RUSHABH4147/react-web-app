@@ -1,7 +1,7 @@
 import React , {useState}from "react";
 import '../App.css';
 import {useForm} from 'react-hook-form';// npm install react-hook-form
-import {Link} from 'react-router-dom'; // npm install ract-router-dom
+import {Link , useNavigate} from 'react-router-dom'; // npm install ract-router-dom
 
 
 
@@ -11,7 +11,9 @@ function Login(props) {
   const onSubmit=(data)=>{ 
     console.log(data);
     props.disdat(data) //usestate is define in App.js ( one way data-flow )
+    navigate("/Qqpaper");
   }
+  const navigate = useNavigate();
 
   // function cheched(e){
   //   if(e.target.checked===false){
@@ -41,7 +43,7 @@ function Login(props) {
          
          
          {/* <button type='submit'onClick={handleSubmit(onSubmit)} ><Link to="/Qpaper"  >submit</Link></button>  */}
-         <button  type='submit' onClick={handleSubmit(onSubmit)} ><Link to="/Qqpaper" >submit</Link></button>  
+        <button  type='submit'  onClick={handleSubmit(onSubmit)}>submit</button> 
 
     
          </form>
