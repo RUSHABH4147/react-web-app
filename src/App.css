@@ -186,6 +186,15 @@ button{
     padding-left: 10px;
     text-align: center;
 }
+.ans{
+  padding: 5px;
+  margin: 10px;
+
+}
+.BTNS{
+  position: relative;
+  margin-top: 55px;
+}
 
 /* form{
   display: inline-grid;

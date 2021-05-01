@@ -235,8 +235,8 @@ function Qqpaper(props) {
 
             {/* diplaying correct or wrong */}
 
-            <p>{disdata.first}</p>
-
+            <p className="ans">{disdata.first}</p>
+            <div className="BTNS">
             <button
               className="btn"
               type="submit"
@@ -262,6 +262,7 @@ function Qqpaper(props) {
                 nextquestion{" "}
               </button>
             )}
+            </div>
           </form>
         </>
       </div>
