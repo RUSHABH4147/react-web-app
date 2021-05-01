@@ -7,7 +7,7 @@ function Nav() {
   return (
     <div >
      <nav>
-       <img className="logo" src={logo}></img>
+       <img className="logo" alt="logo" src={logo}></img>
          <h1>ContraExam</h1>
          <ul className='navlinks'>
              <Link className='Linkm' to="/Home">

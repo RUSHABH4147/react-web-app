@@ -1,12 +1,13 @@
-import React, { useState, useEffect, Component } from "react";
+import React, { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
-import Mmarksheet from "./Mmarksheet1";
+// import Mmarksheet from "./Mmarksheet1";
 
 function Qqpaper(props) {
   const { register, handleSubmit } = useForm([]); //its a hook for forms in react
   const [disdata, setdisdata] = useState([]);
   const [enable, setenable] = useState(true);
+  const [openable, setopenable] = useState(false);
 
   const question = [
     {
@@ -132,42 +133,39 @@ function Qqpaper(props) {
           options: "A persistant storage.",
           iscorrect: "wrong!",
         },
-      ],
-    },
+      ]
+    }
   ];
+  // console.log(JSON.stringify(question))
   let navigate = useNavigate();
   const [sec, setsec] = useState(60);
   const [min, setmin] = useState(1);
-// useEffect provides sideeffect when our Component render 
-
+  // useEffect provides sideeffect when our Component render
 
   useEffect(() => {
-
-
     if (sec >= 0) {
       var minid = setTimeout(() => {
-        setmin(min - 1);
+        setmin((m) => m - 1);
       }, 60000);
 
       var secid = setTimeout(() => {
         setsec(sec - 1);
       }, 1000);
-    }else{
+    } else {
       setsec(59);
-
     }
     if (min === 0) {
-      var inter= setInterval(() => {
+      var inter = setInterval(() => {
         navigate("/Mmarksheet");
       }, 1000);
     }
-    return ()=>{ clearTimeout(secid, minid);
-    clearInterval(inter)};
+    return () => {
+      clearTimeout(secid, minid);
+      clearInterval(inter);
+    };
+  }, [sec]);
 
-
-  },[sec]);
-
-const timesec= sec <10 ? `0${sec}`: `${sec}`;
+  const timesec = sec < 10 ? `0${sec}` : `${sec}`;
 
   ////////////
 
@@ -187,11 +185,13 @@ const timesec= sec <10 ? `0${sec}`: `${sec}`;
       props.scq(nextquestion);
       setdisdata("");
       setenable(true);
+      setopenable(false);
     }
   }
   const onSubmit = (data) => {
     console.log(data);
     setdisdata(data);
+    setopenable(true);
     setenable(false);
   };
   return (
@@ -202,32 +202,28 @@ const timesec= sec <10 ? `0${sec}`: `${sec}`;
           <form>
             <p>welcome :{" " + props.dis.username} </p>
             {/* checking time  */}
-            { 
-            min === 0 ? 
-            (
+            {min === 0 ? (
               <p className="TIMER">
                 YOUR GIVEN TIME IS OVER !!!!!!
                 <span>redirecting you to result........</span>
               </p>
-            ) 
-            :
-             (
+            ) : (
               <p className="TIMER">
                 {min}:{timesec}s minutes left .
               </p>
-            )
-            }
+            )}
 
             {/* current question */}
 
             <div>{question[props.cq].ques}</div>
 
-             {/* mapping current question to there option */}
+            {/* mapping current question to there option */}
 
             {question[props.cq].anss.map((answer) => (
               <div key={answer.id}>
                 <input
                   type="radio"
+                  disabled={openable}
                   name={answer.name}
                   value={answer.iscorrect}
                   onClick={() => handlechange(answer.iscorrect)}
@@ -251,17 +247,11 @@ const timesec= sec <10 ? `0${sec}`: `${sec}`;
 
             {/* displaying finsh button on last question with the help of conditoning  */}
 
-
-            {
-            props.cq == question.length - 1
-             ?
-              (
+            {props.cq === question.length - 1 ? (
               <Link to="/Mmarksheet">
                 <button type="submit">Finsh</button>
               </Link>
-            ) 
-            :
-             (
+            ) : (
               <button
                 className="btn"
                 type="button"
@@ -271,9 +261,7 @@ const timesec= sec <10 ? `0${sec}`: `${sec}`;
               >
                 nextquestion{" "}
               </button>
-            )
-            }
-            
+            )}
           </form>
         </>
       </div>

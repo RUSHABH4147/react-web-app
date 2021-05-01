@@ -1,5 +1,4 @@
 import React from 'react';
-import {useForm} from 'react-hook-form';
 import {Link} from 'react-router-dom';
 
 
@@ -7,12 +6,7 @@ function Qpaper(props) {
 
     
    
-    // function props.chck(e){
-    //   if(e.target.value==="2"){
-    //     props.setmark((per)=>(per+1))
-    //   }
-     
-    // }
+    
     return (
       <div >
        <h1>solve the questions </h1>
